@@ -1,0 +1,182 @@
+<template>
+  <header class="header">
+    <div class="header__container container">
+      <div class="header__logo">Miguel UI</div>
+      <div class="header__nav">
+        <a href="#" class="header__link link active">Inicio</a>
+        <a href="#" class="header__link link">Acerca de mi</a>
+        <a href="#" class="header__link link">Proyectos</a>
+        <a href="#" class="header__link link">Contáctame</a>
+      </div>
+      <div class="header__btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="header__nav" class="header__nav-mobile">
+        <div class="header__nav-mobile-container">
+          <a href="#" class="header__link header__link_mob ">Inicio</a>
+          <a href="#" class="header__link header__link_mob active">Acerca de mi</a>
+          <a href="#" class="header__link header__link_mob active">Proyectos</a>
+          <a href="#" class="header__link header__link_mob active">Contáctame</a>
+        </div>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'HeaderComponent',
+  setup () {
+    function sayHello () {
+      console.log('Siema')
+    }
+    return { sayHello }
+  }
+}
+</script>
+
+<style>
+.header {
+  width: 100%;
+  height: 61px;
+  border-bottom: 1px solid #26292D;
+}
+
+.header__container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+}
+
+.header__logo:hover {
+  opacity: .6;
+}
+
+.header__nav {
+  display: none;
+  height: 32px;
+}
+
+.header__link {
+  height: 100%;
+  margin-right: 23px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.header__link:last-child {
+  margin-right: 0;
+}
+
+.header__btn {
+  cursor: pointer;
+  display: flex;
+  min-width: 12px;
+  min-height: 14px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 5px 3px;
+}
+
+.header__btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 100px;
+  background: #FFFFFF;
+}
+
+.header__btn span:last-child {
+  width: 9px;
+}
+
+.active {
+  position: relative;
+  transition: all, .6s;
+}
+
+.active:after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 5px);
+  transition: all, .6s;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #5C62EC;
+}
+
+.header__nav-mobile {
+  transform: translateX(-100%);
+  transition: all, .4s;
+  z-index: 111;
+  position: absolute;
+  left: 0;
+  top: 61px;
+  width: 100%;
+  height: calc(100vh - 61px);
+  background: #5C62EC;
+}
+
+.open {
+  transform: translateX(0%);
+}
+
+.header__nav-mobile-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.header__link_mob {
+  height: 35px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    height: 68px;
+  }
+
+  .header__logo {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .header__nav {
+    display: flex;
+  }
+
+  .header__btn {
+    display: none;
+  }
+
+  .header__nav-mobile {
+    display: none;
+  }
+}
+</style>
